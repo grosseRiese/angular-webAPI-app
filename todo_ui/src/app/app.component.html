@@ -1,0 +1,33 @@
+<div class="wrapper">
+  <header class="header">
+        <a routerLink="/todo"
+        [routerLinkActive]="'active'"
+        [routerLinkActiveOptions]="{exact:true}" class="menu-a-item">
+          <span class="show">Show</span> |
+          <span><i class="fa fa-eye fa-show"></i></span>
+        </a>
+        <a routerLink="/todo/add"
+        [routerLinkActive]="'active'"
+        [routerLinkActiveOptions]="{exact:true}"
+        class="menu-a-item" >
+          <span>Add</span> |
+          <span><i class="fa fa-plus fa-add"></i></span>
+        </a>
+        <div class="menu-a-item" [routerLink]="'/myInfo'"
+        [routerLinkActive]="'active'"
+        [routerLinkActiveOptions]="{exact:true}">
+          <span> TODO WITH<br><i style="color:red">          
+            <b>ANGULAR </b></i> 
+          </span>
+        </div>
+
+  </header><!-- // End of header -->
+<!-- // End of
+    <app-add-todo></app-add-todo>
+    <app-todo-list ></app-todo-list>
+-->
+  <section class="grid-body">
+    <router-outlet></router-outlet>
+  </section>
+</div>
+

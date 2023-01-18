@@ -1,0 +1,40 @@
+
+<article class="article-container">
+  <section class="customize-form"> 
+  <form #form="ngForm" (ngSubmit)="addTodo()" > 
+
+    <div class="input-group-div">
+      <label for="task" class="form-label">Task</label>
+      <input type="text" class="form-control" id="task" name="task"  [(ngModel)]="addTodoRequest.task" required>
+    </div>
+
+    <div class="input-group-div">
+      <label for="isCompleted" class="form-label">Have finished!</label>
+    <!-- <input type="text" class="form-control" id="isCompleted" name="isCompleted" [(ngModel)]="addTodoRequest.isCompleted" >  --> 
+      <select class="form-control" id="isCompleted" name="isCompleted" [(ngModel)]="addTodoRequest.isCompleted">
+        <option [ngValue]="true"> Yes </option>
+        <option [ngValue]="false"> No </option>
+      </select>
+    </div>
+
+    <div class="input-group-div">
+      <label for="description" class="form-label">Details</label>
+      <textarea  type="text" class="form-control" id="description" name="description" [(ngModel)]="addTodoRequest.description" rows="3"></textarea>
+    </div>
+
+    <div class="input-group-div">
+      <label for="categoryName" class="form-label">Category name</label>
+      <select class="form-control" id="categoryName" name="categoryName" [(ngModel)]="addTodoRequest.toDoCategoryId">
+        <option [ngValue]="null" disabled> Select Catogery </option>
+        <option [ngValue]="1"> Important </option>
+        <option [ngValue]="2"> Completed </option>
+        <option [ngValue]="3"> Deleted </option>
+      </select>
+    </div>
+
+    <button type="submit" class="btn-submit">
+      Submit 
+    </button>
+  </form>
+</section>
+</article>

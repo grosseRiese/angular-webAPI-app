@@ -1,0 +1,32 @@
+<section class="section-event-Info" >
+  <article  class="course" >
+    <section class="course-preview" >
+      <h6 class="item-id" hidden>{{singleTodoItem.id}}</h6>
+      <h2 class="event-name" 
+      [ngStyle]="{'text-decoration':singleTodoItem.toDoCategoryId === 1 ? '' : singleTodoItem.toDoCategoryId === 2 ? '':'line-through'}"
+      >{{singleTodoItem.task}}</h2>
+      <small> <p class="course-perview-p"     [ngStyle]="{ color: singleTodoItem.toDoCategoryId === 1 ? 'Magenta' : singleTodoItem.toDoCategoryId === 2 ? '#42971c':'gray'}">
+        {{singleTodoItem.toDoCategoryId ===1 ?'Important':singleTodoItem.toDoCategoryId ===2?'Completed':'Deleted'}} 
+      </p> </small>
+    </section>
+
+    <section class="course-info">
+      <article class="progress-container">
+        <p class="progress-p"> {{singleTodoItem.dueDate |date: 'short'}}  </p> 
+        <!-- OR {{singleTodoItem.dueDate |date:"MM/dd/yyyy 'at' h:mma"}} -->
+        <span class="progress-text">
+          Created
+        </span>
+      </article>
+      <h6> Is finished: <br> <em [ngStyle]="{color: singleTodoItem.isCompleted === true? 'green' :'red'}"> {{singleTodoItem.isCompleted === true?'Yes' : 'No'}}</em>  </h6>
+      <h3><details><span> {{singleTodoItem.description}} </span> </details></h3><br>
+      
+      <a class="btn-delete" (click) ="deleteTodo(singleTodoItem.id)"> <span> <i class="fa fa-trash"></i> </span> </a> 
+      
+      <a class="btn-status" [routerLink]="['/todos','edit',singleTodoItem.id]">
+        <span><i class="fa fa-refresh fa-update"></i></span>
+      </a> 
+
+    </section>
+  </article>
+</section>

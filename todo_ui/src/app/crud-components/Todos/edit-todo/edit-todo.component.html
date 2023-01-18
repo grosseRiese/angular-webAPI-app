@@ -1,0 +1,44 @@
+<article class="article-container">
+  <section>
+  <form #form="ngForm" (ngSubmit)="updateTodo()"> 
+
+    <div class="input-group-div">
+      <label for="id" class="form-label" hidden>Id</label>
+      <input type="text" class="form-control" id="id" name="id" [(ngModel)]="todoDetailsAsObject.id" readonly hidden>
+    </div>
+
+    <div class="input-group-div">
+      <label for="task" class="form-label">Task</label>
+      <input type="text" class="form-control" id="task" name="task"  [(ngModel)]="todoDetailsAsObject.task">
+    </div>
+
+    <div class="input-group-div">
+      <label for="isCompleted" class="form-label">Have finished!</label>
+    <!-- <input type="text" class="form-control" id="isCompleted" name="isCompleted" [(ngModel)]="todoDetailsAsObject.isCompleted" >  --> 
+      <select class="form-control" id="isCompleted" name="isCompleted" [(ngModel)]="todoDetailsAsObject.isCompleted">
+        <option [ngValue]="true"> Yes </option>
+        <option [ngValue]="false"> No </option>
+      </select>
+    </div>
+
+    <div class="input-group-div">
+      <label for="description" class="form-label">Details</label>
+      <textarea  type="text" class="form-control" id="description" name="description" [(ngModel)]="todoDetailsAsObject.description" rows="3"></textarea>
+    </div>
+
+    <div class="input-group-div">
+      <label for="categoryName" class="form-label">Category name</label>
+      <select class="form-control" id="categoryName" name="categoryName" [(ngModel)]="todoDetailsAsObject.toDoCategoryId">
+        <option [ngValue]="null" disabled> Select Catogery </option>
+        <option [ngValue]="1"> Important </option>
+        <option [ngValue]="2"> Completed </option>
+        <option [ngValue]="3"> Deleted </option>
+      </select>
+    </div>
+
+    <button type="submit" class="btn-submit">
+      Save 
+    </button>
+  </form>
+  </section>
+</article>

@@ -1,0 +1,68 @@
+<!-- -->
+<section>
+  <table class="table" *ngIf="todoList && todoList.length > 0" >
+    <thead>
+      <tr>
+        <th hidden="true">Id</th>
+        <th>To do</th>
+        <!-- <th>Date</th> -->
+        <!--<th>Finished!</th> -->
+        <th>Description</th>
+        <th>Category-Name</th>
+        <th></th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let todo of todoList;let i = index;">
+        <td hidden>{{todo.id}}</td>
+        <td >{{todo.task |slice:0:21 |titlecase}}</td>
+        <!-- <td>{{todo.dueDate |date:"MM/dd/yyyy 'at' h:mma"}}</td> -->
+        <!--<td>
+          {{todo.isCompleted === true?'Yes' : 'No'}} 
+        </td> -->
+        <td>
+          {{todo.description |slice:0:16}} <small> <a class="btn btn-info link-description" [routerLink]="['/todos',todo.id]">[...]</a></small>
+        </td> 
+        <!--
+        <td >
+          {{todo.toDoCategoryId[0] ==1 ? 'Important':todo.toDoCategoryId[1] ==2 ? 'Completed' : 'Deleted' }}
+        </td>
+        -->
+        <td [ngStyle]="{ color: todo.toDoCategoryId === 1 ? 'Magenta' : todo.toDoCategoryId === 2 ? '#42971c':'gray'}" >
+            {{todo.toDoCategoryId ===1 ?'Important':todo.toDoCategoryId ===2?'Completed':'Deleted'}}</td>
+            
+        <td class="icon-box1" >
+          <a class="btn btn-danger icon-btn-delete" (click) ="deleteTodo(todo.id)">
+            <span><i class="fa fa-trash"></i></span>
+          </a> 
+        </td>
+        <td class="icon-box2" >
+          <a class="btn btn-primary" [routerLink]="['/todos','edit',todo.id]">
+            <span><i class="fa fa-refresh fa-update"></i></span>
+          </a> 
+        </td>
+        <td class="icon-box3" >
+          <a class="btn btn-info" [routerLink]="['/todos',todo.id]"> 
+            <span><i class="fa fa-eye fa-show" ></i></span> 
+          </a>
+        </td>
+
+      </tr>
+    </tbody>
+    <tfoot>
+      <ul class="footer-ul">
+        <li class="li-info"> {{countTodos()}} <span class="text-li-info">todos, </span> </li>
+        <li class="li-info"> {{countCompleh}} <span class="text-li-info">Completed,</span> </li>
+        <li class="li-info">{{countImportant}} <span class="text-li-info">Important,</span></li>
+        <li class="li-info">{{countDeleted}} <span class="text-li-info">Deleted</span></li>
+      </ul>
+    </tfoot>
+
+  </table>
+    <p  class="NotFound" *ngIf="!todoList || todoList.length <= 0">
+      <span>No<br></span>
+      Todo:s Found!
+    </p>
+</section>

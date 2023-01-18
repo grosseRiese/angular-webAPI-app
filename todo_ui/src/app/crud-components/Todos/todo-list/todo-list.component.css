@@ -1,0 +1,117 @@
+
+  .table{
+    display: flex;
+    flex-direction: column;
+    margin:1.7rem 1rem;
+    background: rgba(248, 248, 248, 0);
+    box-shadow: 5px 10px 18px #888888;
+  }
+  thead,tbody{
+    flex-direction: row ;
+  }
+  thead{
+    border: 1.2px solid #000;
+    height:3rem;
+    background-color: #010a01; /*rgba(14, 14, 14, 0.423);*/
+    
+    color: rgba(204, 221, 178, 0.933);
+    align-items: center;
+    text-align:center;
+    font-size: 1.8vw;
+    border-radius:7px 7px 0 0;
+  }
+  tr{
+    display:grid;
+    grid-template-columns: repeat(3,1fr) repeat(2,3%) 5% /*repeat(7, 1fr); */
+  }
+  th{
+    margin-top: 0.72rem;
+  }
+  td{
+    margin:0.5rem;
+    text-align:center;
+    font-size: 1.4vw;
+  }
+  .btn-danger{
+    color:red;
+    
+  }
+  .fa-update{
+    color:#084bdcdb;
+  }
+  .fa-show{
+    color: #66b3ff;
+  }
+  .fa-show:hover{
+    color:rgba(3, 60, 87, 0.938);
+    cursor: pointer;
+    text-shadow: 0 0 3px #FF0000;
+  }
+  .fa-update:hover{
+    color:#674819bf;
+    cursor: pointer;
+    text-shadow: 0 0 3px #FF0000;
+  }
+  .btn-danger:hover{
+    color:rgb(88, 67, 67);
+    cursor: pointer;
+    text-shadow: 0 0 3px #FF0000;
+  }
+  tbody>tr:nth-child(odd) {
+    background-color: rgb(187, 183, 183);
+  }
+  tbody>tr:nth-child(even) {
+    background-color: rgb(239, 239, 240);
+  }
+  .NotFound{
+    color: #fff;
+    text-shadow:
+      0 0 7px #fff,
+      0 0 10px #fff,
+      0 0 21px #fff,
+      0 0 42px rgb(255, 0, 0),
+      0 0 82px rgb(255, 0, 0),
+      0 0 92px rgb(255, 0, 0),
+      0 0 102px rgb(255, 0, 0),
+      0 0 151px rgb(255, 0, 0);
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: 400;
+    font-size: 5.2vw;
+    margin-top: 25vh;
+  }
+  .footer-ul{
+    font-size: 0.81vw; 
+    font-family: "Sacramento", sans-serif;
+    background-color: #010a01;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    list-style: none;
+    column-gap: 6px;
+    height:5vh;
+  }
+  .li-info{
+    color: #fff;
+    text-shadow:
+      
+      0 0 10px #fff,
+      0 0 21px #fff,
+      0 0 82px #bc13fe,
+      0 0 92px #bc13fe;
+    font-size:1.5vw;
+  }
+  .text-li-info{
+    font-size:1vw;
+    letter-spacing:2px;
+    color:#8dbff0;
+  }
+  .link-description{
+    text-decoration: none;
+    color:#66b3ff;
+    font-size: 1.5vw;
+  }
+  .link-description:hover{
+    color:#f1992d;
+    text-shadow: #66b3ff;
+  }
